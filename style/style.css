@@ -1,0 +1,760 @@
+/*
+INICIO ROOT
+*/
+
+:root
+{
+    /*TAMANHOS*/
+    --header-height: 90px;
+    --section-width: 1200px;
+    --switch-width: 75px;
+    --intro-bottom-height: 65px; /*DEFINE O TAMANHO DOS ICONES DA INTRODUCAO*/
+    --icon-menu-size: 45px;
+    /*TAMANHOS*/
+
+    /*CORES PADRAO*/
+    --white: #FFEBD7;
+    --bege: #FFD3A7;
+    --light-orange: #CF9256;
+    --orange: #D37F2B;
+    --brown: #4A2400;
+    --dark-brown: #1B0D00;
+    --gray: #514A46;
+    --dark-gray: #302925;
+    /*CORES PADRAO*/
+
+    /*CORES MODO CLARO*/
+    --dark-gray-to-white:       var(--dark-gray);
+    --dark-gray-to-orange:      var(--dark-gray);
+    --light-orange-to-gray:     var(--light-orange); 
+    --light-orange-to-bege:     var(--light-orange);   
+    --light-orange-to-white:    var(--light-orange);
+    --orange-to-dark-gray:      var(--orange);
+    --white-to-dark-gray:       var(--white);    
+    --white-to-dark-gray:       var(--white); 
+    --brown-to-light-orange:    var(--brown);        
+    --brown-to-white:           var(--brown);
+    --brown-to-bege:            var(--brown);
+    --bege-to-white:            var(--bege);  
+    --bege-to-gray:             var(--bege);
+    /*CORES MODO CLARO*/
+
+}
+
+:root .dark
+{
+    /*CORES MODO ESCURO*/
+    --dark-gray-to-white:       var(--white);
+    --dark-gray-to-orange:      var(--orange);
+    --light-orange-to-gray:     var(--gray);
+    --light-orange-to-bege:     var(--bege);
+    --light-orange-to-white:    var(--white);
+    --orange-to-dark-gray:      var(--dark-gray);
+    --white-to-dark-gray:       var(--dark-gray);
+    --white-to-dark-gray:       var(--dark-gray);
+    --brown-to-light-orange:    var(--light-orange);
+    --brown-to-white:           var(--white);
+    --brown-to-bege:            var(--bege);
+    --bege-to-white:            var(--white);
+    --bege-to-gray:             var(--gray);
+    /*CORES MODO ESCURO*/
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    padding-top: calc(var(--header-height) + 20px);
+    font-family: "Montserrat Alternates", sans-serif;
+    background-color: var(--white-to-dark-gray);
+}
+
+*
+{
+    transition: color 0.5s, background-color 0.5s, border 0.5s;
+    box-sizing: border-box;
+}
+
+a{text-decoration: none;}
+
+.center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section
+{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+FIM ROOT
+*/
+
+/*
+INICIO HEADER
+*/
+
+header
+{
+    background-color: var(--light-orange-to-gray);
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    top: 0;
+}
+
+#header-grid-container
+{
+    width: var(--section-width);
+    height: var(--header-height);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+#header-links
+{
+    width: 100%;
+    display: flex;
+
+    a
+    {
+        color: var(--white);
+        font-weight: 700;
+        font-size: 18px;
+        margin-right: 40px;
+        transition: color 0.6s, 
+                    transform 0.6s;
+    }
+
+    a:hover
+    {
+        color: #1B0D00;
+        transform: scale(1.1);
+    }
+}
+
+/*MENU*/
+#header-show-menu
+{
+    display: none;
+    z-index: 10;
+    position: relative;
+
+    span 
+    {
+        color: var(--white);
+        font-size: var(--icon-menu-size);
+        transition: color 0.5s;
+    }
+    
+}
+
+#header-state-menu
+{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    z-index: 999;
+}
+
+#header-state-menu:hover + span
+{
+    color: var(--dark-brown);
+}
+/*MENU*/
+
+/*INICIO SWITCH*/
+
+#header-color-switch
+{
+    width: var(--switch-width);
+    aspect-ratio: 2/1;
+    border-radius: calc(var(--switch-width) / 4);
+    background-color: var(--bege-to-white);
+    position: relative;
+}
+
+#header-color-switch div
+{
+    width: 50%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: absolute;
+    left: -1px;
+    background-color: var(--white-to-dark-gray);
+    transition: left 0.5s, 
+                transform 0.7s;
+
+    span
+    {
+        font-size: calc(var(--switch-width) / 2.5);
+        color: var(--light-orange-to-white);
+    }
+}
+
+#header-color-switch:hover div
+{
+    transform: scale(1.15);
+}
+
+#header-switch-input
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    z-index: 10;
+}
+
+#header-switch-input:checked + div
+{
+    left: calc(100% - (var(--switch-width) / 2) + 1px);
+}
+
+/*FIM SWITCH*/
+
+/*
+FIM HEADER
+*/
+
+/*
+INICIO INTRODUCAO
+*/
+
+#section-intro
+{
+    height: calc(100vh - (var(--header-height) + 20px));
+}
+
+#intro-grid-container
+{
+    width: var(--section-width);
+    height: 50vh;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr var(--intro-bottom-height);
+    grid-template-areas:
+        "name image"
+        "icons link";
+}
+
+#intro-img
+{
+    background-color: white; /*TEMPORARIO*/
+    width: 250px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    grid-area: image;
+    position: relative;
+    top: 0;
+}
+
+#intro-name
+{
+    grid-area: name;
+    width: 100%;
+    color: var(--light-orange-to-bege);
+    font-weight: 800;
+    font-size: 60px;
+    margin: 0;
+
+    span
+    {
+        font-size: 45px;
+        font-weight: 400;
+        color: var(--brown-to-white);
+    }
+}
+
+#intro-contact-link
+{
+    grid-area: link;
+    background-color: var(--light-orange-to-white);
+    padding: 0 45px;
+    border-radius: 25px;
+    color: var(--brown);
+    font-weight: 600;
+    font-size: 18px;
+    border: solid 5px var(--light-orange-to-white);
+    transition: all 0.5s;
+    margin: 10px 0;
+}
+
+#intro-contact-link:hover
+{
+    background-color: transparent;
+    transform: scale(1.05);
+    color: var(--light-orange-to-white);
+}
+
+#intro-icons-container
+{
+    grid-area: icons;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, var(--intro-bottom-height));
+    column-gap: 100px;
+}
+
+#intro-icons-container svg
+{
+    color: var(--light-orange-to-white);
+    height: var(--intro-bottom-height);
+    width: auto;
+    aspect-ratio: 1/1;
+    transition: transform 0.5s,
+                color 0.5s;
+}
+
+#intro-icons-container svg:hover
+{
+    transform: scale(1.15);
+    color: var(--orange);
+}
+
+/*
+FIM INTRODUCAO
+*/
+
+/*
+INICIO TOPICOS
+*/
+
+.text-right
+{
+    text-align: right;
+}
+
+.topic-title-container
+{
+    width: var(--section-width);
+
+    h3, div
+    {
+        width: 100%;
+    }
+}
+
+.topic-title
+{
+    color: var(--brown-to-bege);
+    margin: 0;
+    font-size: 35px;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.topic-line
+{
+    background-color: var(--light-orange);
+    height: 10px;
+    margin-bottom: 50px;
+}
+
+/*
+FIM TOPICOS
+*/
+
+/*
+INICIO ABOUT
+*/
+
+#about-text
+{
+    text-align: justify;
+    width: calc(var(--section-width) / 1.15);
+    margin-bottom: 200px; 
+    color: var(--brown-to-white);
+    font-size: 28px;
+    font-weight: 500;
+}
+
+/*
+FIM ABOUT
+*/
+
+/*
+INICIO SKILLS
+*/
+
+/*TO DO
+-ADICIONAR OS MODAIS NAS SKILLS
+*/
+
+#skills-grid-container
+{
+    width: var(--section-width);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    column-gap: 1.5%;
+    row-gap: 60px;
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+
+.skills-topics
+{
+    background-color: var(--white);
+    border: solid 4px var(--light-orange-to-white);
+    cursor: pointer;
+    color: var(--brown);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    border-radius: 30px;
+    width: 80%;                
+    padding: 9px 0;
+    transition: transform 0.5s;
+}
+
+.skills-topics:hover
+{
+    transform: scale(1.15);
+}
+
+/*
+INICIO MODAL
+*/
+
+#modal{
+    width: 30%;
+    padding: 15px 25px;
+    background-color: var(--bege-to-gray);
+    border-color: var(--dark-brown);
+    border-radius: 25px;
+    z-index: 100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+#modal-imgs-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+#modal-imgs-container img{
+    width: 60%;
+    aspect-ratio: 1/1;
+    display: none;
+}
+
+#modal-text-container p{
+    text-align: justify;
+    color: var(--dark-gray-to-orange);
+    display: none;
+}
+
+#modal-icon{
+    cursor: pointer;
+    font-size: 40px;
+    color: var(--dark-gray-to-orange);
+}
+
+#block{
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    bottom: 150px;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    display: none;
+}
+
+.show-modal{
+    display: block !important;
+}
+
+/*
+FIM MODAL
+*/
+
+/*
+FIM SKILLS
+*/
+
+/*
+INICIO PROJETOS
+*/
+
+#projects-grid-container
+{
+    display: grid;
+    column-gap: 50px;
+    row-gap: 40px;
+    margin-bottom: 200px; 
+    width: calc(var(--section-width) * 0.7);
+}
+
+.project-container
+{
+    background-color: var(--bege-to-gray);
+    width: calc(var(--section-width) * 0.7);
+    border-radius: 30px;
+    padding: 20px 25px;
+}
+
+.project-flex-header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 
+    {
+        color: var(--light-orange-to-bege);
+        margin: 0;
+    }
+
+    a{color: var(--brown-to-light-orange);}
+    a:hover{color: var(--light-orange);}
+}
+
+.project-description
+{
+    margin: 0;
+    text-align: left;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 20px;
+    color: var(--dark-gray-to-white);
+}
+
+.project-flex-footer
+{
+    display: flex;
+    margin-top: 20px;
+
+    div
+    {
+        padding: 4px 8px;
+        border: var(--orange-to-dark-gray) solid 4px;
+        background-color: var(--white-to-dark-gray);
+        border-radius: 15px;
+        margin-right: 4%;
+        cursor: pointer;
+        transition: all 0.5s;
+        color: var(--dark-gray-to-orange);
+    }
+
+    div:hover
+    {
+        transform: scale(1.1);
+    }
+}
+
+/*
+FIM PROJETOS
+*/
+
+/*
+INICIO CONTATOS
+*/
+
+#contacts-title
+{
+    display: flex;
+    justify-content: space-between;
+    
+    a
+    {
+        color: var(--brown-to-bege);
+        font-style: italic;
+        font-weight: 500;
+    }
+
+    a:hover
+    {
+        color: var(--orange);
+    }
+}
+
+#contacts-grid-container
+{
+    display: grid;
+    width: var(--section-width);
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 12%;
+    row-gap: 50px;
+    margin-bottom: 180px;
+    margin-top: 20px;
+    padding: 0 4%;
+}
+
+.contacts-itens
+{
+    width: 100%;
+    border: solid 7px var(--light-orange-to-white);
+    color: var(--light-orange-to-white);
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    transition: all 0.8s;
+}
+
+.contacts-icons
+{
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.contacts-itens p 
+{
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0;
+}
+
+.contacts-itens:hover 
+{
+    transform: scale(1.1);
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+/*
+FIM CONTATOS
+*/
+
+/*
+INICIO FORMULARIO
+*/
+
+#form-body
+{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#form-section
+{
+    height: 100%;
+}
+
+#form-contacts-grid-container
+{
+    display: grid;
+    row-gap: 20px;
+    width: 35%;
+    margin-right: 25px;
+}
+
+#form-flex-container
+{
+    width: 90%;
+    display: flex;
+    width: var(--section-width);
+    justify-content: space-between;
+}
+
+form
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(4, 40px);
+    row-gap: 20px;
+}
+
+form input, #form-message
+{
+    width: 70%;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 10px;
+}
+
+#form-message-label
+{
+    grid-column: span 2;
+}
+
+#form-message
+{
+    margin-left: 50px;
+    width: 70%;
+    grid-column: span 2;
+}
+
+form label
+{
+    text-align: left;
+    margin-left: 50px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--brown-to-bege);
+}
+
+.form-icons
+{
+    width: 16%;
+    aspect-ratio: 1/1;
+}
+
+.form-itens #email
+{
+    font-size: 1em;
+}
+
+.form-itens p 
+{
+    font-size: 0.9rem;
+}
+
+
+
+/*
+FIM FORMULARIO
+*/
+
+/*
+INICIO FOOTER
+*/
+
+footer
+{
+    width: 100%;
+    height: 80px;
+    background-color: var(--light-orange-to-gray);
+}
+
+footer p
+{
+    color: var(--white);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 18px;
+}
+
+/*
+FIM FOOTER
+*/
