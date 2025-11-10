@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samuel Wingester</title>
+    <title>Contate-me</title>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/media.css">
@@ -54,15 +54,17 @@
             <div class="topic-line"></div>
         </div>
         <div id="form-flex-container">
-            <form action="">
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="dfbe87d3-e3ec-4e55-b346-ae59022bd051">
                 <label for="name">NOME</label>
-                <input type="text" name="name" id="form-name">
+                <input type="text" name="name" id="form-name" required>
                 <label for="email">EMAIL</label>
-                <input type="text" name="email" id="form-email">
+                <input type="text" name="email" id="form-email" required>
                 <label for="assunto">ASSUNTO</label>
-                <input type="text" name="assunto" id="form-assunto">
+                <input type="text" name="assunto" id="form-assunto" required>
                 <label for="message" id="form-message-label">MENSAGEM</label>
-                <textarea name="message" id="form-message"></textarea>
+                <textarea name="message" id="form-message" required></textarea>
+                <input type="submit" style="grid-column: span 2;width: 30%; margin-left: 50px;">
             </form>
             <div class="topic-content-container" id="form-contacts-grid-container">
                 <div class="contacts-itens form-itens">

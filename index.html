@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="style/media.css">
     <script src="script.js" defer></script>
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <!--FONTE-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +30,6 @@
                     sunny" />
     <!--ICONES-->
 </head>
-
 <body>
     <header class="center">
         <div id="header-grid-container">
@@ -184,40 +186,46 @@
             <div class="topic-line"></div>
         </div>
         <div class="topic-content-container" id="projects-grid-container">
-            <div class="project-container">
-                <div class="project-flex-header">
-                    <h3>Owltech</h3>
-                    <a href="https://github.com/samuelwingester" class="center">Ver No GitHub<span
-                            class="material-symbols-outlined">arrow_right_alt</span></a>
-                </div>
-                <p class="project-description">Site Ecommerce feito como projeto escolar</p>
-                <div class="project-flex-footer">
-                    <div>HTML</div>
-                    <div>CSS</div>
-                </div>
-            </div>
-            <div class="project-container">
-                <div class="project-flex-header">
-                    <h3>BFPP</h3>
-                    <a href="https://github.com/samuelwingester" class="center">Ver No GitHub<span
-                            class="material-symbols-outlined">arrow_right_alt</span></a>
-                </div>
-                <p class="project-description">uma classe em C++ que comprime um codigo de BrainF#ck, interpreta e o
-                    traduz para C++</p>
-                <div class="project-flex-footer">
-                    <div>C++</div>
+            <div data-aos="fade-right">
+                <div class="project-container">
+                    <div class="project-flex-header">
+                        <h3>Owltech</h3>
+                        <a href="https://github.com/samuelwingester" class="center">Ver No GitHub<span
+                                class="material-symbols-outlined">arrow_right_alt</span></a>
+                    </div>
+                    <p class="project-description">Site Ecommerce feito como projeto escolar</p>
+                    <div class="project-flex-footer">
+                        <div>HTML</div>
+                        <div>CSS</div>
+                    </div>
                 </div>
             </div>
-            <div class="project-container">
-                <div class="project-flex-header">
-                    <h3>Paint-js</h3>
-                    <a href="https://github.com/samuelwingester" class="center">Ver No GitHub<span
-                            class="material-symbols-outlined">arrow_right_alt</span></a>
+            <div data-aos="fade-left">
+                <div class="project-container">
+                    <div class="project-flex-header">
+                        <h3>BFPP</h3>
+                        <a href="https://github.com/samuelwingester" class="center">Ver No GitHub<span
+                                class="material-symbols-outlined">arrow_right_alt</span></a>
+                    </div>
+                    <p class="project-description">uma classe em C++ que comprime um codigo de BrainF#ck, interpreta e o
+                        traduz para C++</p>
+                    <div class="project-flex-footer">
+                        <div>C++</div>
+                    </div>
                 </div>
-                <p class="project-description">Paint simples feito com javascript</p>
-                <div class="project-flex-footer">
-                    <div>javascript</div>
-                    <div>HTML</div>
+            </div>
+            <div data-aos="fade-right">
+                <div class="project-container">
+                    <div class="project-flex-header">
+                        <h3>Paint-js</h3>
+                        <a href="https://github.com/samuelwingester" class="center">Ver No GitHub<span
+                                class="material-symbols-outlined">arrow_right_alt</span></a>
+                    </div>
+                    <p class="project-description">Paint simples feito com javascript</p>
+                    <div class="project-flex-footer">
+                        <div>javascript</div>
+                        <div>HTML</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -312,6 +320,9 @@
     <footer class="center">
         <p>SAMUEL LUCENA GOMES WINGESTER</p>
     </footer>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
